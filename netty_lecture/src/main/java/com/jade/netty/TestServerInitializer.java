@@ -11,7 +11,6 @@ public class TestServerInitializer extends ChannelInitializer<SocketChannel> {
     protected void initChannel(SocketChannel socketChannel) throws Exception {
 
         ChannelPipeline pipeline = socketChannel.pipeline();
-
         pipeline.addLast("HttpServerCodec",new HttpServerCodec());
         pipeline.addLast("TestServerHandler",new TestServerHandler());
 
