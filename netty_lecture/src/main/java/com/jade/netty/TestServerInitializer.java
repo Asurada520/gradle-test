@@ -14,6 +14,7 @@ public class TestServerInitializer extends ChannelInitializer<SocketChannel> {
 
         pipeline.addLast("HttpServerCodec",new HttpServerCodec());
 
+
         pipeline.addLast("TestServerHandler",new TestServerHandler());
 
     }
