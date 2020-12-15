@@ -1,4 +1,4 @@
-package com.jade.netty;
+package com.jade.netty.http;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
