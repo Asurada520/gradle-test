@@ -14,7 +14,6 @@ import java.io.InputStreamReader;
 public class MyChatClient {
     public static void main(String[] args) throws InterruptedException, IOException {
 
-
         EventLoopGroup eventLoopGroup = new NioEventLoopGroup();
 
         try{
