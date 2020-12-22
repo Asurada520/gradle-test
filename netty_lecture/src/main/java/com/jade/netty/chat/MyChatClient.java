@@ -15,7 +15,6 @@ public class MyChatClient {
     public static void main(String[] args) throws InterruptedException, IOException {
 
         EventLoopGroup eventLoopGroup = new NioEventLoopGroup();
-
         try{
             Bootstrap bootstrap = new Bootstrap();
             bootstrap.group(eventLoopGroup).channel(NioSocketChannel.class).handler(new MyChatClientInitializer());
