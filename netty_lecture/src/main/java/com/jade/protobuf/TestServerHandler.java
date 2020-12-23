@@ -2,7 +2,6 @@ package com.jade.protobuf;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import jdk.management.resource.internal.inst.SocketOutputStreamRMHooks;
 
 public class TestServerHandler extends SimpleChannelInboundHandler<PersonInfo.MyMessage> {
 
