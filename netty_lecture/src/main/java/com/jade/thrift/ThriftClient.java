@@ -12,8 +12,9 @@ public class ThriftClient {
 
     public static void main(String[] args) {
 
+//        多种选择 和 服务器端 对应传输
         TTransport transport = new TFramedTransport(new TSocket("localhost",8899), 600);
-
+//        多种选择 和 服务器端 对应协议
         TProtocol protocol = new TCompactProtocol(transport);
 
         PersonService.Client client = new PersonService.Client(protocol);

@@ -12,18 +12,23 @@ import thrift.generated.PersonService;
 public class ThriftServer {
 
     public static void main(String[] args) throws TTransportException {
-
+//      socket 对象
         TNonblockingServerSocket socket = new TNonblockingServerSocket(8899);
         THsHaServer.Args arg = new THsHaServer.Args(socket).minWorkerThreads(2).maxWorkerThreads(4);
 
         PersonService.Processor<PersonServiceImpl> processor = new PersonService.Processor<>(new PersonServiceImpl());
+//        协议层 高层协议 可以指定协议 数据传输格式
+//        二进制压缩协议 tCompactProtocol
         arg.protocolFactory(new TCompactProtocol.Factory());
+//        传输层 使用到的对象 有几种对象 更底层感念 数据传输方式
+//        传输形式 TFramedTransport
         arg.transportFactory(new TFramedTransport.Factory());
         arg.processorFactory(new TProcessorFactory(processor));
 
+//        半同步半异步 服务器  服务模型
         TServer server = new THsHaServer(arg);
         System.out.println("Thrift Server Started");
-        server.serve();
+        server.serve(); // 是一个死循环
 
     }
 
