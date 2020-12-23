@@ -11,6 +11,7 @@ import io.netty.handler.codec.http.HttpServerCodec;
  */
 public class TestServerInitializer extends ChannelInitializer<SocketChannel> {
 
+
     /**
      * 初始化管道 回调方法
      * @param socketChannel

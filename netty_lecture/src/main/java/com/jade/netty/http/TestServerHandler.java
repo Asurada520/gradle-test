@@ -19,9 +19,9 @@ import java.net.URI;
  */
 public class TestServerHandler extends SimpleChannelInboundHandler<HttpObject> {
 
+
     /**
-     *  读取客户端请求 返回给客户端响应
-     *
+     * 读取客户端请求 返回给客户端响应
      * @param ctx
      * @param msg
      * @throws Exception
@@ -29,7 +29,6 @@ public class TestServerHandler extends SimpleChannelInboundHandler<HttpObject> {
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, HttpObject msg) throws Exception {
-
         System.out.println(msg.getClass());
         System.out.println(ctx.channel().remoteAddress());
 
@@ -66,37 +65,39 @@ public class TestServerHandler extends SimpleChannelInboundHandler<HttpObject> {
             ctx.channel().close();
 
         }
-
     }
 
-//      通道活动
+    //      通道活动
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         System.out.println("channelActive");
         super.channelActive(ctx);
     }
-//      通道注册
+    //      通道注册
     @Override
     public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
         System.out.println("channelRegistered");
         super.channelRegistered(ctx);
     }
-//      通道添加
+    //      通道添加
     @Override
     public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
         System.out.println("handlerAdded");
         super.handlerAdded(ctx);
     }
-//      通道不活动
+    //      通道不活动
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         System.out.println("channelInactive");
         super.channelInactive(ctx);
     }
-//      通道注销
+    //      通道注销
     @Override
     public void channelUnregistered(ChannelHandlerContext ctx) throws Exception {
         System.out.println("channelUnregistered");
         super.channelUnregistered(ctx);
     }
+
+
+
 }

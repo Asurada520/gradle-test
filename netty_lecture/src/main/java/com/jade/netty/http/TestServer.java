@@ -7,6 +7,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 public class TestServer {
+
     public static void main(String[] args) throws InterruptedException {
 
         //  netty中 大多数有 对线程处理,控制 IO异步的操作，异步的调度
@@ -58,4 +59,5 @@ public class TestServer {
         }
 
     }
+
 }
