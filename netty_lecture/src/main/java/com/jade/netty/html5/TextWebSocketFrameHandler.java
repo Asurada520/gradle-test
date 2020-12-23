@@ -16,7 +16,7 @@ public class TextWebSocketFrameHandler extends SimpleChannelInboundHandler<TextW
 
         Channel channel = ctx.channel();
 
-        channel.writeAndFlush(new TextWebSocketFrame("服务器时间：" + LocalDateTime.now()));
+        channel.writeAndFlush(new TextWebSocketFrame("服务器时间是：" + LocalDateTime.now()));
 
     }
 
