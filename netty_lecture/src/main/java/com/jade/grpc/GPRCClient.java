@@ -1,6 +1,5 @@
 package com.jade.grpc;
 
-import com.jade.proto.StudentServiceGrpc;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
