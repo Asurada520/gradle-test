@@ -28,16 +28,52 @@ public final class TeacherServiceGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<MyRequest,
-      MyResponse> METHOD_GET_REAL_NAME_BY_USERNAME =
-      io.grpc.MethodDescriptor.<MyRequest, MyResponse>newBuilder()
+  public static final io.grpc.MethodDescriptor<com.jade.proto.MyRequest,
+      com.jade.proto.MyResponse> METHOD_GET_REAL_NAME_BY_USERNAME =
+      io.grpc.MethodDescriptor.<com.jade.proto.MyRequest, com.jade.proto.MyResponse>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "com.jade.proto.TeacherService", "GetRealNameByUsername"))
           .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              MyRequest.getDefaultInstance()))
+              com.jade.proto.MyRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              MyResponse.getDefaultInstance()))
+              com.jade.proto.MyResponse.getDefaultInstance()))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.jade.proto.TeacherRequest,
+      com.jade.proto.TeacherResponse> METHOD_GET_TEACHER_BY_AGE =
+      io.grpc.MethodDescriptor.<com.jade.proto.TeacherRequest, com.jade.proto.TeacherResponse>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+          .setFullMethodName(generateFullMethodName(
+              "com.jade.proto.TeacherService", "GetTeacherByAge"))
+          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.jade.proto.TeacherRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.jade.proto.TeacherResponse.getDefaultInstance()))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.jade.proto.TeacherRequest,
+      com.jade.proto.TeacherResponseList> METHOD_GET_TEACHER_WRAPPER_BY_AGES =
+      io.grpc.MethodDescriptor.<com.jade.proto.TeacherRequest, com.jade.proto.TeacherResponseList>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
+          .setFullMethodName(generateFullMethodName(
+              "com.jade.proto.TeacherService", "GetTeacherWrapperByAges"))
+          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.jade.proto.TeacherRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.jade.proto.TeacherResponseList.getDefaultInstance()))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.jade.proto.StreamRequest,
+      com.jade.proto.StreamResponse> METHOD_BI_TALK =
+      io.grpc.MethodDescriptor.<com.jade.proto.StreamRequest, com.jade.proto.StreamResponse>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.BIDI_STREAMING)
+          .setFullMethodName(generateFullMethodName(
+              "com.jade.proto.TeacherService", "BiTalk"))
+          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.jade.proto.StreamRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.jade.proto.StreamResponse.getDefaultInstance()))
           .build();
 
   /**
@@ -69,20 +105,62 @@ public final class TeacherServiceGrpc {
 
     /**
      */
-    public void getRealNameByUsername(MyRequest request,
-                                      io.grpc.stub.StreamObserver<MyResponse> responseObserver) {
+    public void getRealNameByUsername(com.jade.proto.MyRequest request,
+        io.grpc.stub.StreamObserver<com.jade.proto.MyResponse> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_GET_REAL_NAME_BY_USERNAME, responseObserver);
     }
 
-    @Override public final io.grpc.ServerServiceDefinition bindService() {
+    /**
+     */
+    public void getTeacherByAge(com.jade.proto.TeacherRequest request,
+        io.grpc.stub.StreamObserver<com.jade.proto.TeacherResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_GET_TEACHER_BY_AGE, responseObserver);
+    }
+
+    /**
+     */
+    public io.grpc.stub.StreamObserver<com.jade.proto.TeacherRequest> getTeacherWrapperByAges(
+        io.grpc.stub.StreamObserver<com.jade.proto.TeacherResponseList> responseObserver) {
+      return asyncUnimplementedStreamingCall(METHOD_GET_TEACHER_WRAPPER_BY_AGES, responseObserver);
+    }
+
+    /**
+     */
+    public io.grpc.stub.StreamObserver<com.jade.proto.StreamRequest> biTalk(
+        io.grpc.stub.StreamObserver<com.jade.proto.StreamResponse> responseObserver) {
+      return asyncUnimplementedStreamingCall(METHOD_BI_TALK, responseObserver);
+    }
+
+    @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
             METHOD_GET_REAL_NAME_BY_USERNAME,
             asyncUnaryCall(
               new MethodHandlers<
-                MyRequest,
-                MyResponse>(
+                com.jade.proto.MyRequest,
+                com.jade.proto.MyResponse>(
                   this, METHODID_GET_REAL_NAME_BY_USERNAME)))
+          .addMethod(
+            METHOD_GET_TEACHER_BY_AGE,
+            asyncServerStreamingCall(
+              new MethodHandlers<
+                com.jade.proto.TeacherRequest,
+                com.jade.proto.TeacherResponse>(
+                  this, METHODID_GET_TEACHER_BY_AGE)))
+          .addMethod(
+            METHOD_GET_TEACHER_WRAPPER_BY_AGES,
+            asyncClientStreamingCall(
+              new MethodHandlers<
+                com.jade.proto.TeacherRequest,
+                com.jade.proto.TeacherResponseList>(
+                  this, METHODID_GET_TEACHER_WRAPPER_BY_AGES)))
+          .addMethod(
+            METHOD_BI_TALK,
+            asyncBidiStreamingCall(
+              new MethodHandlers<
+                com.jade.proto.StreamRequest,
+                com.jade.proto.StreamResponse>(
+                  this, METHODID_BI_TALK)))
           .build();
     }
   }
@@ -99,7 +177,7 @@ public final class TeacherServiceGrpc {
       super(channel, callOptions);
     }
 
-    @Override
+    @java.lang.Override
     protected TeacherServiceStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new TeacherServiceStub(channel, callOptions);
@@ -107,10 +185,34 @@ public final class TeacherServiceGrpc {
 
     /**
      */
-    public void getRealNameByUsername(MyRequest request,
-                                      io.grpc.stub.StreamObserver<MyResponse> responseObserver) {
+    public void getRealNameByUsername(com.jade.proto.MyRequest request,
+        io.grpc.stub.StreamObserver<com.jade.proto.MyResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_GET_REAL_NAME_BY_USERNAME, getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getTeacherByAge(com.jade.proto.TeacherRequest request,
+        io.grpc.stub.StreamObserver<com.jade.proto.TeacherResponse> responseObserver) {
+      asyncServerStreamingCall(
+          getChannel().newCall(METHOD_GET_TEACHER_BY_AGE, getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public io.grpc.stub.StreamObserver<com.jade.proto.TeacherRequest> getTeacherWrapperByAges(
+        io.grpc.stub.StreamObserver<com.jade.proto.TeacherResponseList> responseObserver) {
+      return asyncClientStreamingCall(
+          getChannel().newCall(METHOD_GET_TEACHER_WRAPPER_BY_AGES, getCallOptions()), responseObserver);
+    }
+
+    /**
+     */
+    public io.grpc.stub.StreamObserver<com.jade.proto.StreamRequest> biTalk(
+        io.grpc.stub.StreamObserver<com.jade.proto.StreamResponse> responseObserver) {
+      return asyncBidiStreamingCall(
+          getChannel().newCall(METHOD_BI_TALK, getCallOptions()), responseObserver);
     }
   }
 
@@ -126,7 +228,7 @@ public final class TeacherServiceGrpc {
       super(channel, callOptions);
     }
 
-    @Override
+    @java.lang.Override
     protected TeacherServiceBlockingStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new TeacherServiceBlockingStub(channel, callOptions);
@@ -134,9 +236,17 @@ public final class TeacherServiceGrpc {
 
     /**
      */
-    public MyResponse getRealNameByUsername(MyRequest request) {
+    public com.jade.proto.MyResponse getRealNameByUsername(com.jade.proto.MyRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_GET_REAL_NAME_BY_USERNAME, getCallOptions(), request);
+    }
+
+    /**
+     */
+    public java.util.Iterator<com.jade.proto.TeacherResponse> getTeacherByAge(
+        com.jade.proto.TeacherRequest request) {
+      return blockingServerStreamingCall(
+          getChannel(), METHOD_GET_TEACHER_BY_AGE, getCallOptions(), request);
     }
   }
 
@@ -152,7 +262,7 @@ public final class TeacherServiceGrpc {
       super(channel, callOptions);
     }
 
-    @Override
+    @java.lang.Override
     protected TeacherServiceFutureStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new TeacherServiceFutureStub(channel, callOptions);
@@ -160,14 +270,17 @@ public final class TeacherServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<MyResponse> getRealNameByUsername(
-        MyRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.jade.proto.MyResponse> getRealNameByUsername(
+        com.jade.proto.MyRequest request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_GET_REAL_NAME_BY_USERNAME, getCallOptions()), request);
     }
   }
 
   private static final int METHODID_GET_REAL_NAME_BY_USERNAME = 0;
+  private static final int METHODID_GET_TEACHER_BY_AGE = 1;
+  private static final int METHODID_GET_TEACHER_WRAPPER_BY_AGES = 2;
+  private static final int METHODID_BI_TALK = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -182,24 +295,34 @@ public final class TeacherServiceGrpc {
       this.methodId = methodId;
     }
 
-    @Override
-    @SuppressWarnings("unchecked")
+    @java.lang.Override
+    @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_GET_REAL_NAME_BY_USERNAME:
-          serviceImpl.getRealNameByUsername((MyRequest) request,
-              (io.grpc.stub.StreamObserver<MyResponse>) responseObserver);
+          serviceImpl.getRealNameByUsername((com.jade.proto.MyRequest) request,
+              (io.grpc.stub.StreamObserver<com.jade.proto.MyResponse>) responseObserver);
+          break;
+        case METHODID_GET_TEACHER_BY_AGE:
+          serviceImpl.getTeacherByAge((com.jade.proto.TeacherRequest) request,
+              (io.grpc.stub.StreamObserver<com.jade.proto.TeacherResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
       }
     }
 
-    @Override
-    @SuppressWarnings("unchecked")
+    @java.lang.Override
+    @java.lang.SuppressWarnings("unchecked")
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
+        case METHODID_GET_TEACHER_WRAPPER_BY_AGES:
+          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.getTeacherWrapperByAges(
+              (io.grpc.stub.StreamObserver<com.jade.proto.TeacherResponseList>) responseObserver);
+        case METHODID_BI_TALK:
+          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.biTalk(
+              (io.grpc.stub.StreamObserver<com.jade.proto.StreamResponse>) responseObserver);
         default:
           throw new AssertionError();
       }
@@ -207,9 +330,9 @@ public final class TeacherServiceGrpc {
   }
 
   private static final class TeacherServiceDescriptorSupplier implements io.grpc.protobuf.ProtoFileDescriptorSupplier {
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return TeacherProto.getDescriptor();
+      return com.jade.proto.TeacherProto.getDescriptor();
     }
   }
 
@@ -224,6 +347,9 @@ public final class TeacherServiceGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new TeacherServiceDescriptorSupplier())
               .addMethod(METHOD_GET_REAL_NAME_BY_USERNAME)
+              .addMethod(METHOD_GET_TEACHER_BY_AGE)
+              .addMethod(METHOD_GET_TEACHER_WRAPPER_BY_AGES)
+              .addMethod(METHOD_BI_TALK)
               .build();
         }
       }

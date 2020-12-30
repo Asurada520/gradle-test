@@ -6,7 +6,17 @@ option java_outer_classname = "TeacherProto";
 option java_multiple_files = true;
 
 service TeacherService {
-    rpc GetRealNameByUsername (MyRequest) returns (MyResponse) {}
+    rpc GetRealNameByUsername (MyRequest) returns (MyResponse) {
+    }
+
+    rpc GetTeacherByAge (TeacherRequest) returns (stream TeacherResponse) {
+    }
+
+    rpc GetTeacherWrapperByAges (stream TeacherRequest) returns (TeacherResponseList) {
+    }
+
+    rpc BiTalk(stream StreamRequest) returns( stream StreamResponse){}
+
 }
 
 message MyRequest {
@@ -15,4 +25,26 @@ message MyRequest {
 
 message MyResponse {
     string realname = 2;
+}
+
+message TeacherRequest {
+    int32 age = 1;
+}
+
+message TeacherResponse {
+    string name = 1;
+    int32 age = 2;
+    string city = 3;
+}
+
+message TeacherResponseList {
+    repeated TeacherResponse teacherResponse = 1;
+}
+
+message StreamRequest{
+    string request_info = 1;
+}
+
+message StreamResponse{
+    string response_info = 1;
 }
