@@ -20,57 +20,57 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.4.0)",
     comments = "Source: Teacher.proto")
-public final class StudentServiceGrpc {
+public final class TeacherServiceGrpc {
 
-  private StudentServiceGrpc() {}
+  private TeacherServiceGrpc() {}
 
-  public static final String SERVICE_NAME = "com.jade.proto.StudentService";
+  public static final String SERVICE_NAME = "com.jade.proto.TeacherService";
 
   // Static method descriptors that strictly reflect the proto.
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<com.jade.proto.MyRequest,
-      com.jade.proto.MyResponse> METHOD_GET_REAL_NAME_BY_USERNAME =
-      io.grpc.MethodDescriptor.<com.jade.proto.MyRequest, com.jade.proto.MyResponse>newBuilder()
+  public static final io.grpc.MethodDescriptor<MyRequest,
+      MyResponse> METHOD_GET_REAL_NAME_BY_USERNAME =
+      io.grpc.MethodDescriptor.<MyRequest, MyResponse>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
-              "com.jade.proto.StudentService", "GetRealNameByUsername"))
+              "com.jade.proto.TeacherService", "GetRealNameByUsername"))
           .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              com.jade.proto.MyRequest.getDefaultInstance()))
+              MyRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              com.jade.proto.MyResponse.getDefaultInstance()))
+              MyResponse.getDefaultInstance()))
           .build();
 
   /**
    * Creates a new async stub that supports all call types for the service
    */
-  public static StudentServiceStub newStub(io.grpc.Channel channel) {
-    return new StudentServiceStub(channel);
+  public static TeacherServiceStub newStub(io.grpc.Channel channel) {
+    return new TeacherServiceStub(channel);
   }
 
   /**
    * Creates a new blocking-style stub that supports unary and streaming output calls on the service
    */
-  public static StudentServiceBlockingStub newBlockingStub(
+  public static TeacherServiceBlockingStub newBlockingStub(
       io.grpc.Channel channel) {
-    return new StudentServiceBlockingStub(channel);
+    return new TeacherServiceBlockingStub(channel);
   }
 
   /**
    * Creates a new ListenableFuture-style stub that supports unary calls on the service
    */
-  public static StudentServiceFutureStub newFutureStub(
+  public static TeacherServiceFutureStub newFutureStub(
       io.grpc.Channel channel) {
-    return new StudentServiceFutureStub(channel);
+    return new TeacherServiceFutureStub(channel);
   }
 
   /**
    */
-  public static abstract class StudentServiceImplBase implements io.grpc.BindableService {
+  public static abstract class TeacherServiceImplBase implements io.grpc.BindableService {
 
     /**
      */
-    public void getRealNameByUsername(com.jade.proto.MyRequest request,
-        io.grpc.stub.StreamObserver<com.jade.proto.MyResponse> responseObserver) {
+    public void getRealNameByUsername(MyRequest request,
+                                      io.grpc.stub.StreamObserver<MyResponse> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_GET_REAL_NAME_BY_USERNAME, responseObserver);
     }
 
@@ -80,8 +80,8 @@ public final class StudentServiceGrpc {
             METHOD_GET_REAL_NAME_BY_USERNAME,
             asyncUnaryCall(
               new MethodHandlers<
-                com.jade.proto.MyRequest,
-                com.jade.proto.MyResponse>(
+                MyRequest,
+                MyResponse>(
                   this, METHODID_GET_REAL_NAME_BY_USERNAME)))
           .build();
     }
@@ -89,26 +89,26 @@ public final class StudentServiceGrpc {
 
   /**
    */
-  public static final class StudentServiceStub extends io.grpc.stub.AbstractStub<StudentServiceStub> {
-    private StudentServiceStub(io.grpc.Channel channel) {
+  public static final class TeacherServiceStub extends io.grpc.stub.AbstractStub<TeacherServiceStub> {
+    private TeacherServiceStub(io.grpc.Channel channel) {
       super(channel);
     }
 
-    private StudentServiceStub(io.grpc.Channel channel,
+    private TeacherServiceStub(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @Override
-    protected StudentServiceStub build(io.grpc.Channel channel,
+    protected TeacherServiceStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
-      return new StudentServiceStub(channel, callOptions);
+      return new TeacherServiceStub(channel, callOptions);
     }
 
     /**
      */
-    public void getRealNameByUsername(com.jade.proto.MyRequest request,
-        io.grpc.stub.StreamObserver<com.jade.proto.MyResponse> responseObserver) {
+    public void getRealNameByUsername(MyRequest request,
+                                      io.grpc.stub.StreamObserver<MyResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_GET_REAL_NAME_BY_USERNAME, getCallOptions()), request, responseObserver);
     }
@@ -116,25 +116,25 @@ public final class StudentServiceGrpc {
 
   /**
    */
-  public static final class StudentServiceBlockingStub extends io.grpc.stub.AbstractStub<StudentServiceBlockingStub> {
-    private StudentServiceBlockingStub(io.grpc.Channel channel) {
+  public static final class TeacherServiceBlockingStub extends io.grpc.stub.AbstractStub<TeacherServiceBlockingStub> {
+    private TeacherServiceBlockingStub(io.grpc.Channel channel) {
       super(channel);
     }
 
-    private StudentServiceBlockingStub(io.grpc.Channel channel,
+    private TeacherServiceBlockingStub(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @Override
-    protected StudentServiceBlockingStub build(io.grpc.Channel channel,
+    protected TeacherServiceBlockingStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
-      return new StudentServiceBlockingStub(channel, callOptions);
+      return new TeacherServiceBlockingStub(channel, callOptions);
     }
 
     /**
      */
-    public com.jade.proto.MyResponse getRealNameByUsername(com.jade.proto.MyRequest request) {
+    public MyResponse getRealNameByUsername(MyRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_GET_REAL_NAME_BY_USERNAME, getCallOptions(), request);
     }
@@ -142,26 +142,26 @@ public final class StudentServiceGrpc {
 
   /**
    */
-  public static final class StudentServiceFutureStub extends io.grpc.stub.AbstractStub<StudentServiceFutureStub> {
-    private StudentServiceFutureStub(io.grpc.Channel channel) {
+  public static final class TeacherServiceFutureStub extends io.grpc.stub.AbstractStub<TeacherServiceFutureStub> {
+    private TeacherServiceFutureStub(io.grpc.Channel channel) {
       super(channel);
     }
 
-    private StudentServiceFutureStub(io.grpc.Channel channel,
+    private TeacherServiceFutureStub(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @Override
-    protected StudentServiceFutureStub build(io.grpc.Channel channel,
+    protected TeacherServiceFutureStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
-      return new StudentServiceFutureStub(channel, callOptions);
+      return new TeacherServiceFutureStub(channel, callOptions);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.jade.proto.MyResponse> getRealNameByUsername(
-        com.jade.proto.MyRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<MyResponse> getRealNameByUsername(
+        MyRequest request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_GET_REAL_NAME_BY_USERNAME, getCallOptions()), request);
     }
@@ -174,10 +174,10 @@ public final class StudentServiceGrpc {
       io.grpc.stub.ServerCalls.ServerStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.ClientStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.BidiStreamingMethod<Req, Resp> {
-    private final StudentServiceImplBase serviceImpl;
+    private final TeacherServiceImplBase serviceImpl;
     private final int methodId;
 
-    MethodHandlers(StudentServiceImplBase serviceImpl, int methodId) {
+    MethodHandlers(TeacherServiceImplBase serviceImpl, int methodId) {
       this.serviceImpl = serviceImpl;
       this.methodId = methodId;
     }
@@ -187,8 +187,8 @@ public final class StudentServiceGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_GET_REAL_NAME_BY_USERNAME:
-          serviceImpl.getRealNameByUsername((com.jade.proto.MyRequest) request,
-              (io.grpc.stub.StreamObserver<com.jade.proto.MyResponse>) responseObserver);
+          serviceImpl.getRealNameByUsername((MyRequest) request,
+              (io.grpc.stub.StreamObserver<MyResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -206,10 +206,10 @@ public final class StudentServiceGrpc {
     }
   }
 
-  private static final class StudentServiceDescriptorSupplier implements io.grpc.protobuf.ProtoFileDescriptorSupplier {
+  private static final class TeacherServiceDescriptorSupplier implements io.grpc.protobuf.ProtoFileDescriptorSupplier {
     @Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return com.jade.proto.TeacherProto.getDescriptor();
+      return TeacherProto.getDescriptor();
     }
   }
 
@@ -218,11 +218,11 @@ public final class StudentServiceGrpc {
   public static io.grpc.ServiceDescriptor getServiceDescriptor() {
     io.grpc.ServiceDescriptor result = serviceDescriptor;
     if (result == null) {
-      synchronized (StudentServiceGrpc.class) {
+      synchronized (TeacherServiceGrpc.class) {
         result = serviceDescriptor;
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
-              .setSchemaDescriptor(new StudentServiceDescriptorSupplier())
+              .setSchemaDescriptor(new TeacherServiceDescriptorSupplier())
               .addMethod(METHOD_GET_REAL_NAME_BY_USERNAME)
               .build();
         }

@@ -5,7 +5,7 @@ option java_package = "com.jade.proto";
 option java_outer_classname = "TeacherProto";
 option java_multiple_files = true;
 
-service StudentService {
+service TeacherService {
     rpc GetRealNameByUsername (MyRequest) returns (MyResponse) {}
 }
 

@@ -35,7 +35,7 @@ public final class TeacherProto {
     String[] descriptorData = {
       "\n\rTeacher.proto\022\016com.jade.proto\"\035\n\tMyReq" +
       "uest\022\020\n\010username\030\001 \001(\t\"\036\n\nMyResponse\022\020\n\010" +
-      "realname\030\002 \001(\t2b\n\016StudentService\022P\n\025GetR" +
+      "realname\030\002 \001(\t2b\n\016TeacherService\022P\n\025GetR" +
       "ealNameByUsername\022\031.com.jade.proto.MyReq" +
       "uest\032\032.com.jade.proto.MyResponse\"\000B \n\016co" +
       "m.jade.protoB\014TeacherProtoP\001b\006proto3"

@@ -5,7 +5,7 @@ import io.grpc.ServerBuilder;
 
 import java.io.IOException;
 
-public class GrpcServer {
+public class GRPCServer {
 
     private Server server;
 
@@ -31,7 +31,7 @@ public class GrpcServer {
 
     public static void main(String[] args) throws IOException, InterruptedException {
 
-        GrpcServer grpcServer = new GrpcServer();
+        GRPCServer grpcServer = new GRPCServer();
         grpcServer.start();
         grpcServer.awaitTermination();
 
