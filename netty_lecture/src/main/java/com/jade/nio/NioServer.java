@@ -54,31 +54,31 @@ public class NioServer {
 
                         } else if (selectionKey.isReadable()) {
 
-                            client = (SocketChannel)selectionKey.channel();
+                            client = (SocketChannel) selectionKey.channel();
                             ByteBuffer readBuffer = ByteBuffer.allocate(1024);
                             int count = client.read(readBuffer);
 
-                            if(count > 0){
+                            if (count > 0) {
                                 readBuffer.flip();
                                 Charset charset = Charset.forName("utf-8");
                                 CharBuffer decode = charset.decode(readBuffer);
                                 String receiveMessage = String.valueOf(decode.array());
-                                System.out.println(client+ " ：" + receiveMessage);
+                                System.out.println(client + " ：" + receiveMessage);
 
 
                                 String senderKey = null;
 
-                                for(Map.Entry<String, SocketChannel> entry: clientMap.entrySet()){
-                                    if(client == entry.getValue()){
+                                for (Map.Entry<String, SocketChannel> entry : clientMap.entrySet()) {
+                                    if (client == entry.getValue()) {
                                         senderKey = entry.getKey();
                                         break;
                                     }
                                 }
 
-                                for(Map.Entry<String, SocketChannel> entry: clientMap.entrySet()){
+                                for (Map.Entry<String, SocketChannel> entry : clientMap.entrySet()) {
                                     SocketChannel socketChannel = entry.getValue();
                                     ByteBuffer writerBuffer = ByteBuffer.allocate(1024);
-                                    writerBuffer.put((senderKey+":" + receiveMessage).getBytes());
+                                    writerBuffer.put((senderKey + ":" + receiveMessage).getBytes());
                                     writerBuffer.flip();
                                     socketChannel.write(writerBuffer);
                                 }
